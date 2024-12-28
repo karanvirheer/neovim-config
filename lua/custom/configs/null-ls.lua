@@ -6,12 +6,14 @@ local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
 
 local sources = {
+  require "none-ls-shellcheck.diagnostics",
+  require "none-ls-shellcheck.code_actions",
   formatting.stylua,
   formatting.prettier,
   formatting.sql_formatter,
   formatting.clang_format,
 
-  lint.shellcheck,
+  -- lint.shellcheck,
 }
 
 local on_attach = function(client, bufnr)

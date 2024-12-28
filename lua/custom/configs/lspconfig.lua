@@ -10,6 +10,7 @@ local servers = {
   "cssls",
   "cssmodules_ls",
   "jsonls",
+  "pyright",
 }
 
 for _, lsp in ipairs(servers) do

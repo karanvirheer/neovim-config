@@ -1,4 +1,5 @@
 return {
+  -- Debug UI
   {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
@@ -21,6 +22,7 @@ return {
       end
     end,
   },
+  -- Debugging
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
@@ -32,6 +34,7 @@ return {
       handlers = {},
     },
   },
+  -- Debugging
   {
     "mfussenegger/nvim-dap",
     config = function(_, _)
@@ -42,14 +45,21 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function()
-        require "custom.configs.null-ls"
-      end,
+      "nvimtools/none-ls.nvim",
     },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
+    end,
+  },
+
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "gbprod/none-ls-shellcheck.nvim",
+    },
+    config = function()
+      require "custom.configs.null-ls"
     end,
   },
 
@@ -65,6 +75,7 @@ return {
         "cssmodules-language-server",
         "html-lsp",
         "lua-language-server",
+        "pyright",
         -- DAP
         "codelldb",
         -- Linters
