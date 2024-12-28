@@ -1,4 +1,15 @@
 return {
+  -- LeetCode
+  {
+    "kawre/leetcode.nvim",
+    opts = {
+      lang = "java",
+      plugins = {
+        non_standalone = true,
+      },
+    },
+    cmd = "Leet",
+  },
   -- Debug UI
   {
     "rcarriga/nvim-dap-ui",
