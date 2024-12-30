@@ -1,9 +1,20 @@
 return {
+  -- Auto-Closes Tags
+  {
+    "windwp/nvim-ts-autotag",
+    after = "nvim-treesitter",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
   -- LeetCode
   {
     "kawre/leetcode.nvim",
     opts = {
       lang = "java",
+      storage = {
+        home = "~/dev/LeetCode/",
+      },
       plugins = {
         non_standalone = true,
       },
