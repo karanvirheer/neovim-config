@@ -2,9 +2,13 @@ return {
   -- Auto-Closes Tags
   {
     "windwp/nvim-ts-autotag",
-    after = "nvim-treesitter",
+    after = "nvim-treesitter", -- Ensure it's loaded after Treesitter
     config = function()
-      require("nvim-ts-autotag").setup()
+      require("nvim-ts-autotag").setup {
+        enable_close = true, -- Enable auto-close tags
+        enable_rename = true, -- Enable auto-rename tag pairs
+        enable_close_on_slash = false, -- Prevent auto-closing when typing a closing slash (e.g., `</`)
+      }
     end,
   },
   -- LeetCode
@@ -98,6 +102,7 @@ return {
         "html-lsp",
         "lua-language-server",
         "pyright",
+        "ts_ls",
         -- DAP
         "codelldb",
         -- Linters
@@ -128,6 +133,10 @@ return {
         "python",
         "c",
         "cpp",
+      },
+      highlight = {
+        enable = true, -- Make sure syntax highlighting is enabled
+        additional_vim_regex_highlighting = false,
       },
     },
   },

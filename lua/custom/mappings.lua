@@ -1,5 +1,10 @@
 local M = {}
 
+M.general = {
+  -- Close the current tab with Ctrl-w
+  ["<C-w>"] = { ":tabclose<CR>", desc = "Close current tab" },
+}
+
 -- DAP Debugging Mapping
 M.dap = {
   plugin = true,
