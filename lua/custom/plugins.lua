@@ -2,14 +2,13 @@ return {
   -- Auto-Closes Tags
   {
     "windwp/nvim-ts-autotag",
-    after = "nvim-treesitter", -- Ensure it's loaded after Treesitter
-    config = function()
-      require("nvim-ts-autotag").setup {
-        enable_close = true, -- Enable auto-close tags
-        enable_rename = true, -- Enable auto-rename tag pairs
-        enable_close_on_slash = false, -- Prevent auto-closing when typing a closing slash (e.g., `</`)
-      }
-    end,
+    event = "BufReadPre",
+    opts = {
+      enable_close = true, -- Auto-close tags
+      enable_rename = true, -- Auto-rename paired tags
+      enable_close_on_slash = false, -- Auto-close on `</`
+      filetypes = { "html", "javascript", "typescript", "jsx", "tsx", "vue", "xml" },
+    },
   },
   -- LeetCode
   {

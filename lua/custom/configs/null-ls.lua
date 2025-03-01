@@ -13,6 +13,8 @@ local sources = {
   formatting.sql_formatter,
   formatting.clang_format,
 
+  -- null_ls.builtins.code_actions.eslint,
+  null_ls.builtins.code_actions.refactoring,
   -- lint.shellcheck,
 }
 

@@ -1,10 +1,5 @@
 local M = {}
 
-M.general = {
-  -- Close the current tab with Ctrl-w
-  ["<C-w>"] = { ":tabclose<CR>", desc = "Close current tab" },
-}
-
 -- DAP Debugging Mapping
 M.dap = {
   plugin = true,
@@ -20,6 +15,18 @@ M.dap = {
   },
 }
 
-M.general = {}
+-- LSP Mappings
+M.lsp = {
+  plugin = true,
+  n = {
+    ["<leader>ai"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Auto-Import Missing Modules" },
+  },
+}
+
+M.general = {
+  i = {
+    ["jj"] = { "<ESC>", "Escape insert mode" },
+  },
+}
 
 return M
