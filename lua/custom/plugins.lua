@@ -2,13 +2,27 @@ return {
   -- Auto-Closes Tags
   {
     "windwp/nvim-ts-autotag",
-    event = "BufReadPre",
-    opts = {
-      enable_close = true, -- Auto-close tags
-      enable_rename = true, -- Auto-rename paired tags
-      enable_close_on_slash = false, -- Auto-close on `</`
-      filetypes = { "html", "javascript", "typescript", "jsx", "tsx", "vue", "xml" },
-    },
+    lazy = false,
+    config = function()
+      require("nvim-ts-autotag").setup {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false,
+        filetypes = {
+          "html",
+          "xml",
+          "javascript",
+          "typescript",
+          "javascriptreact",
+          "typescriptreact",
+          "svelte",
+          "vue",
+          "tsx",
+          "jsx",
+          "php",
+        },
+      }
+    end,
   },
   -- LeetCode
   {
@@ -140,34 +154,34 @@ return {
     },
   },
 
-  {
-    "nvim-java/nvim-java",
-    lazy = false,
-    dependencies = {
-      "nvim-java/lua-async-await",
-      "nvim-java/nvim-java-core",
-      "nvim-java/nvim-java-test",
-      "nvim-java/nvim-java-dap",
-      "MunifTanjim/nui.nvim",
-      "neovim/nvim-lspconfig",
-      "mfussenegger/nvim-dap",
-      {
-        "williamboman/mason.nvim",
-        opts = {
-          registries = {
-            "github:nvim-java/mason-registry",
-            "github:mason-org/mason-registry",
-          },
-        },
-      },
-    },
-    config = function()
-      require("java").setup {}
-      require("lspconfig").jdtls.setup {
-        on_attach = require("plugins.configs.lspconfig").on_attach,
-        capabilities = require("plugins.configs.lspconfig").capabilities,
-        filetypes = { "java" },
-      }
-    end,
-  },
+  -- {
+  --   "nvim-java/nvim-java",
+  --   lazy = false,
+  --   dependencies = {
+  --     "nvim-java/lua-async-await",
+  --     "nvim-java/nvim-java-core",
+  --     "nvim-java/nvim-java-test",
+  --     "nvim-java/nvim-java-dap",
+  --     "MunifTanjim/nui.nvim",
+  --     "neovim/nvim-lspconfig",
+  --     "mfussenegger/nvim-dap",
+  --     {
+  --       "williamboman/mason.nvim",
+  --       opts = {
+  --         registries = {
+  --           "github:nvim-java/mason-registry",
+  --           "github:mason-org/mason-registry",
+  --         },
+  --       },
+  --     },
+  --   },
+  --   config = function()
+  --     require("java").setup {}
+  --     require("lspconfig").jdtls.setup {
+  --       on_attach = require("plugins.configs.lspconfig").on_attach,
+  --       capabilities = require("plugins.configs.lspconfig").capabilities,
+  --       filetypes = { "java" },
+  --     }
+  --   end,
+  -- },
 }
